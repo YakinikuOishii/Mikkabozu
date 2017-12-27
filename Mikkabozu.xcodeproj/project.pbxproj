@@ -14,6 +14,7 @@
 		597A88111FE66BDB00676056 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 597A880F1FE66BDB00676056 /* LaunchScreen.storyboard */; };
 		597A881C1FE66BDB00676056 /* MikkabozuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597A881B1FE66BDB00676056 /* MikkabozuTests.swift */; };
 		597A88271FE66BDB00676056 /* MikkabozuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597A88261FE66BDB00676056 /* MikkabozuUITests.swift */; };
+		598566921FE91107000F4869 /* todoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598566911FE91107000F4869 /* todoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		597A88221FE66BDB00676056 /* MikkabozuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MikkabozuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		597A88261FE66BDB00676056 /* MikkabozuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MikkabozuUITests.swift; sourceTree = "<group>"; };
 		597A88281FE66BDB00676056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		598566911FE91107000F4869 /* todoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				597A88061FE66BDB00676056 /* AppDelegate.swift */,
+				598566911FE91107000F4869 /* todoViewController.swift */,
 				597A88081FE66BDB00676056 /* ViewController.swift */,
 				597A880A1FE66BDB00676056 /* Main.storyboard */,
 				597A880D1FE66BDB00676056 /* Assets.xcassets */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				598566921FE91107000F4869 /* todoViewController.swift in Sources */,
 				597A88091FE66BDB00676056 /* ViewController.swift in Sources */,
 				597A88071FE66BDB00676056 /* AppDelegate.swift in Sources */,
 			);
@@ -505,6 +509,7 @@
 				597A882D1FE66BDB00676056 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		597A882E1FE66BDB00676056 /* Build configuration list for PBXNativeTarget "MikkabozuTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				597A88301FE66BDB00676056 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		597A88311FE66BDB00676056 /* Build configuration list for PBXNativeTarget "MikkabozuUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +527,7 @@
 				597A88331FE66BDB00676056 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

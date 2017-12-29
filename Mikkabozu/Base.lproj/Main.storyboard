@@ -87,7 +87,7 @@
         <!--To Do View Controller-->
         <scene sceneID="4WS-RR-Enm">
             <objects>
-                <viewController id="LeE-Xx-Eet" customClass="toDoViewController" customModule="Mikkabozu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LeE-Xx-Eet" customClass="ToDoViewController" customModule="Mikkabozu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ctf-Q4-1fh"/>
                         <viewControllerLayoutGuide type="bottom" id="WdZ-Sl-90z"/>

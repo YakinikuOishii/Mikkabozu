@@ -33,18 +33,34 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOA-WF-Ftj">
-                                                    <rect key="frame" x="37" y="47" width="99" height="53"/>
+                                                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOA-WF-Ftj">
+                                                    <rect key="frame" x="122" y="61" width="76" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="やること" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8a-wf-q9r">
+                                                    <rect key="frame" x="15" y="8" width="151" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.97034186119999999" green="0.80740499499999996" blue="0.88216501469999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="週何日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjL-5E-2uO">
+                                                    <rect key="frame" x="174" y="8" width="131" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.97034186119999999" green="0.80740499499999996" blue="0.88216501469999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="LeE-Xx-Eet" kind="show" id="nxm-Jk-A56"/>
+                                            <segue destination="LeE-Xx-Eet" kind="show" id="Lbn-oQ-eRn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -68,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="375" y="210.21126760563379"/>
         </scene>
-        <!--Todo View Controller-->
+        <!--To Do View Controller-->
         <scene sceneID="4WS-RR-Enm">
             <objects>
-                <viewController id="LeE-Xx-Eet" customClass="todoViewController" customModule="Mikkabozu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LeE-Xx-Eet" customClass="toDoViewController" customModule="Mikkabozu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ctf-Q4-1fh"/>
                         <viewControllerLayoutGuide type="bottom" id="WdZ-Sl-90z"/>
@@ -117,6 +133,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="setDone" destination="LeE-Xx-Eet" eventType="touchUpInside" id="F8C-Rb-mAH"/>
                                     <segue destination="QnL-Di-ohT" kind="presentation" id="n1N-u6-U3T"/>
                                 </connections>
                             </button>
@@ -125,7 +142,9 @@
                         <gestureRecognizers/>
                     </view>
                     <connections>
-                        <outlet property="textField" destination="TCD-AO-uG2" id="2y0-Ls-jed"/>
+                        <outlet property="dayTextField" destination="TCD-AO-uG2" id="ZXH-R4-N5q"/>
+                        <outlet property="doneButton" destination="Tdu-q4-UCF" id="hgw-qE-eZm"/>
+                        <outlet property="toDotext" destination="1HK-wt-3XZ" id="JPH-ak-GcP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bM-ss-aaS" userLabel="First Responder" sceneMemberID="firstResponder"/>

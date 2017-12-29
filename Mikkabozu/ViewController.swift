@@ -8,12 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource{
-    
+class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegate{
     
     @IBOutlet var table: UITableView! = UITableView()
     
+    var indexArray:[Int] = []
+    var toDoArray:[String] = []
+    var dayArray:[String] = []
+    
+    var index: Int!
+    
+    var saveIndex = UserDefaults.standard
     var saveToDo = UserDefaults.standard
+    var saveDay = UserDefaults.standard
     
 //    @IBOutlet var button: UIButton!
     
@@ -26,6 +33,14 @@ class ViewController: UIViewController, UITableViewDataSource{
         super.viewDidLoad()
         
         table.dataSource = self
+        table.delegate = self
+        
+        indexArray = saveIndex.object(forKey: "index") as! [Int]
+        toDoArray = saveToDo.object(forKey: "todo") as! [String]
+        dayArray = saveDay.object(forKey: "day") as! [String]
+        
+        print(indexArray, toDoArray, dayArray)
+
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -34,17 +49,33 @@ class ViewController: UIViewController, UITableViewDataSource{
         return 10
     }
     
-    func tableView(_ tableView: UITableView, didsSelectRowAt indexPath: IndexPath) {
-        print("セルは\(indexPath.row)番")
-    }
-    
     // ID付きのセルを取得
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        // func
+        index = indexArray.index(of: indexPath.row)
+        
+        let toDoLabel = cell?.viewWithTag(1) as! UILabel
+        if index != nil {
+            toDoLabel.text = toDoArray[index]
+        }else{
+            
+        }
+        
+        let dayLabel = cell?.viewWithTag(2) as! UILabel
+        if index != nil {
+            dayLabel.text = dayArray[index]
+        }
+        
         return cell!
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        indexArray.append(indexPath.row)
+        saveIndex.set(indexArray, forKey: "index")
+        print("\(indexPath.row)番のセル")
+    }
+  
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

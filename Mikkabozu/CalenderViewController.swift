@@ -8,12 +8,13 @@
 
 import UIKit
 
-class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UICollectionViewDataSource{
+class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    var collectionView: UICollectionView!
-    let dateManager = DateManager()
+    @ IBOutlet var collectionView: UICollectionView!
     
     var weekArray = ["日","月","火","水","木","金","土"]
+    var numOfDays: Int! = 7
+    let cellMargin: CGFloat! = 2.0 // セルのマージン？
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,43 +28,51 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
-    // セクションの数
-    internal func numberOfSections(in collectionView: UICollectionView) -> Int {
+    // セクション数
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
     
-    // セクション内のセルの個数
+    // データの個数？(データソースを設定した場合に必要な項目)
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        //セクション毎にセルの総数を変える
-        switch (section) {
-        case 0:
-            return 7
-            
-        case 1:
-            return self.dateManager
-        default:
-            print("error")
-            return 0
+        if (section == 0) { // section0は曜日を表示
+            return numOfDays
+        }else{
+            return 30 // section1は曜日を表示 とりあえず30日分
         }
     }
     
-    // セルの設定
+    // データを返すメソッド？
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // カレンダー.スウィフトファイルを作ってから
-        let cell: UICollectionViewCell
         
-        // セクションごとにセルのプロパティを変える
-        switch (indexPath.section) {
-        case 0:
-            cell.
-        default:
-            <#code#>
+        // セルの取得
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
+        if (indexPath.section == 0) { // 曜日表示
+            cell.backgroundColor = UIColor.green
+            cell.textLabel.text = weekArray[indexPath.row]
+        }else{
+            cell.backgroundColor = UIColor.white
+            cell.textLabel.text = ""
         }
+        return cell
     }
     
+    // セルをタップした時の処理
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("選ばれたのは\(indexPath.row), セクションは\(indexPath.section)")
+    }
+    
+//    // セルサイズの指定
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let numberOfMargin: CGFloat! = 8.0
+//        let widths:CGFloat = (collectionView.frame.size.width - cellMargin * numberOfMargin)/CGFloat(numOfDays)
+//        let heights:CGFloat = widths * 0.8
+//
+//        return CGSize(width:widths,height:heights)
+//    }
+
 
     /*
     // MARK: - Navigation

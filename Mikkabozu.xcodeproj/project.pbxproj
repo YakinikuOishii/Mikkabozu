@@ -208,6 +208,7 @@
 				TargetAttributes = {
 					597A88021FE66BDB00676056 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = FQ44R4777H;
 						ProvisioningStyle = Automatic;
 					};
 					597A88161FE66BDB00676056 = {
@@ -424,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FQ44R4777H;
 				INFOPLIST_FILE = Mikkabozu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.Mikkabozu;
@@ -436,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FQ44R4777H;
 				INFOPLIST_FILE = Mikkabozu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.Mikkabozu;

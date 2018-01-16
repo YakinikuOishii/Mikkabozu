@@ -79,6 +79,8 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
             cell.textLabel.text = weekArray[indexPath.row]
         }else{
             cell.backgroundColor = UIColor.white
+            // セルの日付を取得
+            cell.textLabel.text = dateManager.conversionDateFormat(row:indexPath.row,startDate:startDate)
             if indexPath.row % 7 == 0 {
                 cell.textLabel.textColor = UIColor.red
             }else if indexPath.row % 7 == 6 {
@@ -87,8 +89,6 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
                 cell.textLabel.textColor = UIColor.gray
             }
         }
-        // セルの日付を取得
-        cell.textLabel.text = dateManager.conversionDateFormat(row:indexPath.row,startDate:startDate)
         // セルに年と月のタグをつける
         cell.tag = Int(dateManager.monthTag(row:indexPath.row,startDate:startDate))!
         return cell

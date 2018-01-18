@@ -29,13 +29,21 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         
         let width = view.frame.width
         let height = view.frame.height
+
+        let month:Int = Int(dateManager.monthTag(row:6,startDate:startDate))!
+        let digit = numberOfDigit(month: month)
         
         monthLabel = UILabel()
         monthLabel.frame = CGRect(x:0,y:0,width:width,height:50)
         monthLabel.center = CGPoint(x:width / 2,y:25)
         monthLabel.backgroundColor = UIColor.white
         monthLabel.textAlignment = .center
-        monthLabel.text = "1月"
+        
+        if digit == 5 {
+            monthLabel.text = String(month / 10) + "年" + String(month % 10) + "月"
+        }else if digit == 6 {
+            monthLabel.text = String(month / 100) + "年" + String(month % 100) + "月"
+        }
         self.view.addSubview(monthLabel)
         
 //        let date = Date()
@@ -91,6 +99,7 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         }
         // セルに年と月のタグをつける
         cell.tag = Int(dateManager.monthTag(row:indexPath.row,startDate:startDate))!
+        print(cell.tag)
         return cell
     }
     
@@ -105,7 +114,12 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         let widths:CGFloat = (collectionView.frame.size.width - cellMargin * numberOfMargin)/CGFloat(numOfDays)
         let heights:CGFloat = widths * 0.8
 
-        return CGSize(width:widths,height:heights)
+        if indexPath.section == 0 {
+            return CGSize(width: widths,height: heights)
+        }else{
+            return CGSize(width: widths,height: heights * 1.5)
+        }
+        
     }
     
     //セルのアイテムのマージン
@@ -128,7 +142,7 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         }
         
         var visibleCellTag = Array<Int>()
-        if(visibleCell != []){
+        if visibleCell != [] {
             visibleCellTag = visibleCell.map{$0.tag}
             //月は奇数か偶数か　割り切れるものだけを取り出す
             let even = visibleCellTag.filter{
@@ -142,11 +156,12 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
             
             //桁数によって分岐
             let digit = numberOfDigit(month: month)
-            if(digit == 5){
+            if digit == 5 {
                 monthLabel.text = String(month / 10) + "年" + String(month % 10) + "月"
-            }else if(digit == 6){
+            }else if digit == 6 {
                 monthLabel.text = String(month / 100) + "年" + String(month % 100) + "月"
             }
+            self.view.addSubview(monthLabel)
         }
     }
     

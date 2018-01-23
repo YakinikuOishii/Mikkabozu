@@ -19,18 +19,47 @@ class DateManager: NSDate {
     //セルの個数(nilが入らないようにする)
     private var numberOfItems:Int = 0
     
-//    //指定した月から現在の月までのセルの数を返すメソッド
+    //指定した月から現在の月までのセルの数を返すメソッド
+    func cellCount(startDate:Date) -> Int{
+        let startDateComponents = NSCalendar.current.dateComponents([.year ,.month], from:startDate)
+        let currentDateComponents = NSCalendar.current.dateComponents([.year ,.month], from:selectedDate)
+        //作成月と現在の月が違う時はその分表示    components.monthではなれた月分
+        let components = NSCalendar.current.dateComponents([.year,.month], from: startDateComponents, to: currentDateComponents)
+        let numberOfMonth = components.month! + components.year! * 12
+
+        for i in 0 ..< numberOfMonth + 1{
+            let dateComponents = NSDateComponents()
+            dateComponents.month = i
+            let date = NSCalendar.current.date(byAdding: dateComponents as DateComponents, to: startDate)
+            let dateRange = NSCalendar.current.range(of: .day, in: .month, for: date!)
+            numberOfItems = numberOfItems + dateRange!.count
+//            //in(その月)にof(日)が何個あるか
+//            let dateRange = NSCalendar.current.range(of: .weekOfMonth, in: .month, for: date!)
+//            //月の初日が何曜日かを取得 日曜日==1
+//            let ordinalityOfFirstDay = NSCalendar.current.ordinality(of: .day, in: .weekOfMonth, for: firstDateOfMonth(date:date!))
+//            if(ordinalityOfFirstDay == 1 || i == 0){
+//                numberOfItems = numberOfItems + dateRange!.count * daysPerWeek
+//            }else{
+//                numberOfItems = numberOfItems + (dateRange!.count - 1) * daysPerWeek
+//            }
+        }
+        return numberOfItems
+    }
+    
+    //指定した月から現在の月までのセルの数を返すメソッド
 //    func cellCount(startDate:Date) -> Int{
 //        let startDateComponents = NSCalendar.current.dateComponents([.year ,.month], from:startDate)
 //        let currentDateComponents = NSCalendar.current.dateComponents([.year ,.month], from:selectedDate)
 //        //作成月と現在の月が違う時はその分表示    components.monthではなれた月分
-//        let components = NSCalendar.current.dateComponents([.year,.month], from: startDateComponents, to: currentDateComponents)
+//        let components = NSCalendar.current.dateComponents([.year,.month], from: startDateComponents, to: startDateComponents)
 //        let numberOfMonth = components.month! + components.year! * 12
 //
 //        for i in 0 ..< numberOfMonth + 1{
 //            let dateComponents = NSDateComponents()
 //            dateComponents.month = i
 //            let date = NSCalendar.current.date(byAdding: dateComponents as DateComponents, to: startDate)
+//            let dateRange = NSCalendar.current.range(of: .day, in: .month, for: date!)
+//            numberOfItems = numberOfItems + dateRange!.count
 //            //in(その月)にof(日)が何個あるか
 //            let dateRange = NSCalendar.current.range(of: .weekOfMonth, in: .month, for: date!)
 //            //月の初日が何曜日かを取得 日曜日==1
@@ -43,31 +72,6 @@ class DateManager: NSDate {
 //        }
 //        return numberOfItems
 //    }
-    
-    //指定した月から現在の月までのセルの数を返すメソッド
-    func cellCount(startDate:Date) -> Int{
-        let startDateComponents = NSCalendar.current.dateComponents([.year ,.month], from:startDate)
-//        let currentDateComponents = NSCalendar.current.dateComponents([.year ,.month], from:selectedDate)
-        //作成月と現在の月が違う時はその分表示    components.monthではなれた月分
-        let components = NSCalendar.current.dateComponents([.year,.month], from: startDateComponents, to: startDateComponents)
-        let numberOfMonth = components.month! + components.year! * 12
-        
-        for i in 0 ..< numberOfMonth + 1{
-            let dateComponents = NSDateComponents()
-            dateComponents.month = i
-            let date = NSCalendar.current.date(byAdding: dateComponents as DateComponents, to: startDate)
-            //in(その月)にof(日)が何個あるか
-            let dateRange = NSCalendar.current.range(of: .weekOfMonth, in: .month, for: date!)
-            //月の初日が何曜日かを取得 日曜日==1
-            let ordinalityOfFirstDay = NSCalendar.current.ordinality(of: .day, in: .weekOfMonth, for: firstDateOfMonth(date:date!))
-            if(ordinalityOfFirstDay == 1 || i == 0){
-                numberOfItems = numberOfItems + dateRange!.count * daysPerWeek
-            }else{
-                numberOfItems = numberOfItems + (dateRange!.count - 1) * daysPerWeek
-            }
-        }
-        return numberOfItems
-    }
     
     
     //指定された月の初日を取得

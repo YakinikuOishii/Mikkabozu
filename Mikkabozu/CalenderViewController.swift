@@ -110,7 +110,15 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
     
     var weekArray = ["日","月","火","水","木","金","土"]
     var monthLabel:UILabel!
-    var weekLabel:UILabel!
+    
+    var sundayLabel:UILabel!
+    var mondayLabel:UILabel!
+    var tuesdayLabel:UILabel!
+    var wednesdayLabel:UILabel!
+    var thursdayLabel:UILabel!
+    var fridayLabel:UILabel!
+    var saturdayLabel:UILabel!
+    
     
     var numOfDays: Int! = 7
     let cellMargin: CGFloat! = 2.0 // セルの余白 セルアイテムとは別
@@ -134,7 +142,7 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         
         monthLabel = UILabel()
         monthLabel.frame = CGRect(x:0,y:0,width:width,height:50)
-        monthLabel.center = CGPoint(x:width / 2,y:25)
+//        monthLabel.center = CGPoint(x:width / 2,y:25)
         monthLabel.backgroundColor = UIColor.white
         monthLabel.textAlignment = .center
         
@@ -145,13 +153,56 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         }
         self.view.addSubview(monthLabel)
         
-        weekLabel = UILabel()
-        weekLabel.frame = CGRect(x:0,y:50,width:width,height:50)
-        weekLabel.center = CGPoint(x:width / 2,y:25)
-        weekLabel.backgroundColor = UIColor.white
-        weekLabel.textAlignment = .center
-        weekLabel.text = "日 月 火 水 木 金 土"
-        self.view.addSubview(weekLabel)
+        sundayLabel = UILabel()
+        sundayLabel.frame = CGRect(x: 0,y: 50,width: width/7,height: 50)
+        sundayLabel.backgroundColor = UIColor.white
+        sundayLabel.textAlignment = .center
+        sundayLabel.text = "日"
+        sundayLabel.textColor = UIColor.red
+        self.view.addSubview(sundayLabel)
+        
+        mondayLabel = UILabel()
+        mondayLabel.frame = CGRect(x: width/7, y: 50, width: width/7, height: 50)
+        mondayLabel.backgroundColor = UIColor.white
+        mondayLabel.textAlignment = .center
+        mondayLabel.text = "月"
+        self.view.addSubview(mondayLabel)
+        
+        tuesdayLabel = UILabel()
+        tuesdayLabel.frame = CGRect(x: width/7 * 2, y: 50, width: width/7, height: 50)
+        tuesdayLabel.backgroundColor = UIColor.white
+        tuesdayLabel.textAlignment = .center
+        tuesdayLabel.text = "火"
+        self.view.addSubview(tuesdayLabel)
+        
+        wednesdayLabel = UILabel()
+        wednesdayLabel.frame = CGRect(x: width/7 * 3, y: 50, width: width/7, height: 50)
+        wednesdayLabel.backgroundColor = UIColor.white
+        wednesdayLabel.textAlignment = .center
+        wednesdayLabel.text = "水"
+        self.view.addSubview(wednesdayLabel)
+        
+        thursdayLabel = UILabel()
+        thursdayLabel.frame = CGRect(x: width/7 * 4, y: 50, width: width/7, height: 50)
+        thursdayLabel.backgroundColor = UIColor.white
+        thursdayLabel.textAlignment = .center
+        thursdayLabel.text = "木"
+        self.view.addSubview(thursdayLabel)
+        
+        fridayLabel = UILabel()
+        fridayLabel.frame = CGRect(x: width/7 * 5, y: 50, width: width/7, height: 50)
+        fridayLabel.backgroundColor = UIColor.white
+        fridayLabel.textAlignment = .center
+        fridayLabel.text = "金"
+        self.view.addSubview(fridayLabel)
+        
+        saturdayLabel = UILabel()
+        saturdayLabel.frame = CGRect(x: width/7 * 6, y: 50, width: width/7, height: 50)
+        saturdayLabel.backgroundColor = UIColor.white
+        saturdayLabel.textAlignment = .center
+        saturdayLabel.textColor = UIColor.blue
+        saturdayLabel.text = "土"
+        self.view.addSubview(saturdayLabel)
         
 //        let date = Date()
 //        var components = NSCalendar.current.dateComponents([.year ,.month, .day], from:date)
@@ -256,34 +307,34 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         return cellMargin
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let visibleCell = collectionView.visibleCells.filter{
-            return collectionView.bounds.contains($0.frame)
-        }
-
-        var visibleCellTag = Array<Int>()
-        if visibleCell != [] {
-            visibleCellTag = visibleCell.map{$0.tag}
-            //月は奇数か偶数か　割り切れるものだけを取り出す
-            let even = visibleCellTag.filter{
-                return $0 % 2 == 0
-            }
-            let odd = visibleCellTag.filter{
-                return $0 % 2 != 0
-            }
-            //oddかevenの多い方を返す
-            let month = even.count >= odd.count ? even[0] : odd[0]
-
-            //桁数によって分岐
-            let digit = numberOfDigit(month: month)
-            if digit == 5 {
-                monthLabel.text = String(month / 10) + "年" + String(month % 10) + "月"
-            }else if digit == 6 {
-                monthLabel.text = String(month / 100) + "年" + String(month % 100) + "月"
-            }
-            self.view.addSubview(monthLabel)
-        }
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let visibleCell = collectionView.visibleCells.filter{
+//            return collectionView.bounds.contains($0.frame)
+//        }
+//
+//        var visibleCellTag = Array<Int>()
+//        if visibleCell != [] {
+//            visibleCellTag = visibleCell.map{$0.tag}
+//            //月は奇数か偶数か　割り切れるものだけを取り出す
+//            let even = visibleCellTag.filter{
+//                return $0 % 2 == 0
+//            }
+//            let odd = visibleCellTag.filter{
+//                return $0 % 2 != 0
+//            }
+//            //oddかevenの多い方を返す
+//            let month = even.count >= odd.count ? even[0] : odd[0]
+//
+//            //桁数によって分岐
+//            let digit = numberOfDigit(month: month)
+//            if digit == 5 {
+//                monthLabel.text = String(month / 10) + "年" + String(month % 10) + "月"
+//            }else if digit == 6 {
+//                monthLabel.text = String(month / 100) + "年" + String(month % 100) + "月"
+//            }
+//            self.view.addSubview(monthLabel)
+//        }
+//    }
     
     func numberOfDigit(month:Int) -> Int{
         var num = month

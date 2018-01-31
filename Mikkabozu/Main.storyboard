@@ -61,7 +61,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="cH1-zl-lYT" kind="show" id="2PM-fC-UMd"/>
+                                            <segue destination="AWk-FI-00W" kind="show" id="fAj-9O-xOr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -286,6 +286,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="xSn-Zo-l0z"/>
         <segue reference="Vsz-vc-eMc"/>
     </inferredMetricsTieBreakers>
 </document>

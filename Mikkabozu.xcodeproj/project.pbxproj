@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5911A0D5202AB29500AEDC9D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5911A0D4202AB29500AEDC9D /* TableViewCell.swift */; };
 		5914ABCE20004CD800B5AF61 /* AddCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5914ABCD20004CD800B5AF61 /* AddCellViewController.swift */; };
 		59535DA01FF88D2800A4E9BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59535D9F1FF88D2800A4E9BF /* Main.storyboard */; };
 		597A88071FE66BDB00676056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597A88061FE66BDB00676056 /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5911A0D4202AB29500AEDC9D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		5914ABCD20004CD800B5AF61 /* AddCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCellViewController.swift; sourceTree = "<group>"; };
 		59535D9F1FF88D2800A4E9BF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		597A88031FE66BDB00676056 /* Mikkabozu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mikkabozu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				597A88051FE66BDB00676056 /* Mikkabozu */,
+				597A881A1FE66BDB00676056 /* MikkabozuTests */,
 				597A88251FE66BDB00676056 /* MikkabozuUITests */,
 				597A88041FE66BDB00676056 /* Products */,
 			);
@@ -112,12 +115,12 @@
 				59D7A80E2004CD8A004E903C /* CalenderViewController.swift */,
 				5914ABCD20004CD800B5AF61 /* AddCellViewController.swift */,
 				598566911FE91107000F4869 /* ToDoViewController.swift */,
+				5911A0D4202AB29500AEDC9D /* TableViewCell.swift */,
 				597A88081FE66BDB00676056 /* ViewController.swift */,
 				59535D9F1FF88D2800A4E9BF /* Main.storyboard */,
 				597A880D1FE66BDB00676056 /* Assets.xcassets */,
 				597A880F1FE66BDB00676056 /* LaunchScreen.storyboard */,
 				597A88121FE66BDB00676056 /* Info.plist */,
-				597A881A1FE66BDB00676056 /* MikkabozuTests */,
 			);
 			path = Mikkabozu;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59E999C9200902F90065B72B /* DateManager.swift in Sources */,
+				5911A0D5202AB29500AEDC9D /* TableViewCell.swift in Sources */,
 				59D7A80F2004CD8A004E903C /* CalenderViewController.swift in Sources */,
 				59E999C72008FD030065B72B /* CalendarCell.swift in Sources */,
 				598566921FE91107000F4869 /* ToDoViewController.swift in Sources */,

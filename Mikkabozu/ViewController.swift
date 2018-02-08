@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     @IBOutlet var table: UITableView! = UITableView()
     @IBOutlet var addCellButton: UIBarButtonItem!
     
+    
     var indexArray:[Int] = []
     var toDoArray:[String] = []
     var dayArray:[String] = []
@@ -27,6 +28,8 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     var saveIndexOf = UserDefaults.standard
     
 //    @IBOutlet var button: UIButton!
+//    var date: Date!
+    var saveDate = UserDefaults.standard
     
 //    @IBOutlet var textField: UITextField! = UITextField()
     
@@ -44,7 +47,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             toDoArray = saveToDo.object(forKey: "todo") as! [String]
             dayArray = saveDay.object(forKey: "day") as! [String]
         }else{
-            print("ユーザーデフォルツは空です")
+            print("viewdidユーザーデフォルツは空です")
         }
         
         
@@ -59,9 +62,6 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
 //        indexArray.append(indexArray.count)
         saveIndex.set(arrayCount, forKey: "count")
         saveIndex.set(indexArray, forKey: "index")
-        print("\(toDoArray)追加")
-        print("\(dayArray)追加")
-        print("addCell実行")
         self.performSegue(withIdentifier: "toAddCellViewController", sender: (Any).self)
     }
 
@@ -73,7 +73,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     // ID付きのセルを取得
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        print("\(indexPath.row)番のセルが選ばれた")
+        print("\(indexPath.row)番のセルを取得")
         indexOf = indexArray.index(of: indexPath.row)
         let toDoLabel = cell?.viewWithTag(1) as! UILabel
         
@@ -94,23 +94,59 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         return cell!
     }
     
+    //セルをタップした時のメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("ここでは\(indexPath.row)番のセルが選ばれた")
-        indexOf = indexArray.index(of: indexPath.row)
-//        if indexOf != nil {
-//            indexArray.remove(at: indexOf)
-//            toDoArray.remove(at: indexOf)
-//            dayArray.remove(at: indexOf)
-//
-//        }
-//        indexArray.append(indexPath.row)
-        saveIndexOf.set(indexOf, forKey: "indexof")
-        saveIndex.set(indexPath.row, forKey: "indexpath")
-//        saveIndex.set(indexArray, forKey: "index")
-//        saveToDo.set(toDoArray, forKey: "todo")
-//        saveDay.set(dayArray, forKey: "day")
-//        print(indexArray, toDoArray, dayArray)
+        print("tap:\(indexPath.row)")
+//        indexOf = indexArray.index(of: indexPath.row)
+//        saveIndexOf.set(indexOf, forKey: "indexof")
+//        saveIndex.set(indexPath.row, forKey: "indexpath")
     }
+    
+//    @IBAction func done() {
+//        date = Date()
+//        saveDate.set(date, forKey: "date")
+//    }
+//    // Cellのスワイプメソッドを実装
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let deleteCellButton = UITableViewRowAction(style: .default, title: " 削除　") { action, index in
+//            self.deleteCell(content: "削除", index: index.row) // 押されたときの動きを定義
+//        }
+//        let editCellButton = UITableViewRowAction(style: .default, title: "編集") { action, index in
+//            self.editCell(content: "編集", index: index.row)
+//        }
+    
+//        // 背景色
+//        deleteCellButton.backgroundColor = UIColor(red: 200.0/255.0, green:0/255.0, blue:78/255.0, alpha: 1.0)
+//        editCellButton.backgroundColor = UIColor(red: 0.0/255.0, green:166/255.0, blue:195/255.0, alpha: 1.0)
+//
+//
+//        return [deleteCellButton, editCellButton] // deleteCellから順に表示される
+//    }
+//
+//    // trueを返すことでCellのアクションを許可
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+//
+//    func deleteCell(content: String, index: Int) {
+//        table.reloadData()
+//        print("delete:\(index)")
+////        indexOf = indexArray.index(of: index)
+////        print("deleteOf\(indexOf)")
+//        indexArray.remove(at: index)
+//        dayArray.remove(at: index)
+//        toDoArray.remove(at: index)
+//        table.reloadData()
+//        print("delete\(indexArray,dayArray,toDoArray)")
+//
+//        saveIndex.set(indexArray, forKey: "index")
+//        saveDay.set(dayArray, forKey: "day")
+//        saveToDo.set(toDoArray, forKey: "todo")
+//    }
+//
+//    func editCell(content: String, index: Int) {
+//
+//    }
   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

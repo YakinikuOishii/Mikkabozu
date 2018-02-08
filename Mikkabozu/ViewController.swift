@@ -102,11 +102,10 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
 //        saveIndex.set(indexPath.row, forKey: "indexpath")
     }
     
-//    @IBAction func done() {
-//        date = Date()
-//        saveDate.set(date, forKey: "date")
-//    }
-//    // Cellのスワイプメソッドを実装
+
+    
+    
+//    // Cellのスワイプメソッドを実装　めんどくさいので後回し
 //    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 //        let deleteCellButton = UITableViewRowAction(style: .default, title: " 削除　") { action, index in
 //            self.deleteCell(content: "削除", index: index.row) // 押されたときの動きを定義

@@ -111,24 +111,29 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
     var weekArray = ["日","月","火","水","木","金","土"]
     var monthLabel:UILabel!
     
-//    var sundayLabel:UILabel!
-//    var mondayLabel:UILabel!
-//    var tuesdayLabel:UILabel!
-//    var wednesdayLabel:UILabel!
-//    var thursdayLabel:UILabel!
-//    var fridayLabel:UILabel!
-//    var saturdayLabel:UILabel!
-    
     var weekLabel: UILabel!
     
+    var dateText: String!
     
     var numOfDays: Int! = 7
     let cellMargin: CGFloat! = 2.0 // セルの余白 セルアイテムとは別
+    
+    let dateInt: Int! = nil
+    
+    var date:Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+//        let dateFormater = DateFormatter()
+//        dateFormater.locale = Locale(identifier: "ja_JP")
+//        dateFormater.dateFormat = "yyyyMMdd"
+//        date = Int(dateFormater.date(from: dateText)!)
+//        print(date.description)
+        
+//        date = Int(dateText)
         
         let width = view.frame.width
         let height = view.frame.height
@@ -198,11 +203,7 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         // セルの取得
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
         
-//        if indexPath.section == 0 { // 曜日表示
-//            cell.backgroundColor = UIColor.gray
-//            cell.textLabel.textColor = UIColor.blue
-//            cell.textLabel.text = weekArray[indexPath.row]
-//        }else if indexPath.section == 1{
+
             cell.backgroundColor = UIColor.white
             // セルの日付を取得
             cell.textLabel.text = dateManager.conversionDateFormat(row:indexPath.row,startDate:startDate)
@@ -214,16 +215,6 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
                 cell.textLabel.textColor = UIColor.gray
             }
 
-//        }
-        
-//            let day = Int(dateManager.conversionDateFormat(row:indexPath.row,startDate:startDate))!
-//            if day == 1{
-//                cell.textLabel.border(positions:[.Top,.Left],borderWidth:1,borderColor:UIColor.black)
-//            }else if day <= 7 {
-//                cell.textLabel.border(positions:[.Top],borderWidth:1,borderColor:UIColor.black)
-//            }else{
-//                cell.textLabel.border(positions:[.Top],borderWidth:0,borderColor:UIColor.white)
-//            }
         
         let day = Int(dateManager.conversionDateFormat(row:indexPath.row,startDate:startDate))!
         if day == 1{
@@ -235,7 +226,18 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         }
         // セルに年と月のタグをつける
         cell.tag = Int(dateManager.monthTag(row:indexPath.row,startDate:startDate))!
-//        print(cell.tag)
+        print(cell.tag)
+        print("dateTextは")
+        print(dateText)
+        print("dateは")
+        print(date)
+        
+        if cell.tag == date {
+            cell.backgroundColor = UIColor.green
+        }else{
+            
+        }
+        
         return cell
     }
     
@@ -250,11 +252,9 @@ class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         let widths:CGFloat = (collectionView.frame.size.width - cellMargin * numberOfMargin)/CGFloat(numOfDays)
         let heights:CGFloat = widths * 0.8
 
-//        if indexPath.section == 0 {
-//            return CGSize(width: widths,height: heights)
-//        }else{
+
             return CGSize(width: widths,height: heights * 1.5)
-//        }
+
         
     }
     

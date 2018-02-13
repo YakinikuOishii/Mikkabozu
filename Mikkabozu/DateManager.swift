@@ -83,7 +83,7 @@ class DateManager: NSDate {
     func monthTag(row:Int,startDate:Date) -> String{
         let cellDate = dateForCellAtIndexPathWeeks(row: row,startDate:startDate)
         let formatter:DateFormatter = DateFormatter()
-        formatter.dateFormat = "YM"
+        formatter.dateFormat = "yyyyMMdd"
         return formatter.string(from:cellDate)
     }
     

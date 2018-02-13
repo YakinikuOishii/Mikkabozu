@@ -42,7 +42,7 @@
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="done" destination="DZ1-pO-NZR" eventType="touchUpInside" id="3rJ-yA-cG9"/>
+                                                        <action selector="done" destination="DZ1-pO-NZR" eventType="touchUpInside" id="305-i9-uqZ"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="やること" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brS-p3-5YG">
@@ -65,7 +65,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="button" destination="1Zg-Ak-LGU" id="O4H-oM-5nH"/>
-                                            <segue destination="AWk-FI-00W" kind="show" id="fAj-9O-xOr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -86,6 +85,7 @@
                         <outlet property="addCellButton" destination="vZv-6V-0fQ" id="Y3k-oM-npB"/>
                         <outlet property="table" destination="QWs-Vj-0me" id="ASk-3e-bdi"/>
                         <segue destination="sFj-8q-1yA" kind="show" identifier="toAddCellViewController" id="xSn-Zo-l0z"/>
+                        <segue destination="AWk-FI-00W" kind="show" identifier="toCalendar" id="hsj-fN-xst"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LF4-H0-UMq" sceneMemberID="firstResponder"/>

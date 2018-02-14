@@ -1,5 +1,5 @@
 //
-//  CalenderViewController.swift
+//  CalendarViewController.swift
 //  Mikkabozu
 //
 //  Created by 笠原未来 on 2018/01/09.
@@ -100,7 +100,7 @@ extension UIView {
     }
     
 }
-class CalenderViewController: UIViewController ,UICollectionViewDelegate ,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+class CalendarViewController: UIViewController ,UICollectionViewDelegate ,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     @ IBOutlet var collectionView: UICollectionView!
     

@@ -106,9 +106,11 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextVC = segue.destination as! CalenderViewController
-        nextVC.dateText = sender as! String
-        nextVC.date = Int(nextVC.dateText)
+        if segue.identifier == "toCalendar" {
+            let nextVC = segue.destination as! CalendarViewController
+            nextVC.dateText = sender as! String
+            nextVC.date = Int(nextVC.dateText)
+        }
     }
     
     //        indexOf = indexArray.index(of: indexPath.row)
@@ -141,11 +143,12 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     func deleteCell(content: String, index: Int) {
         table.reloadData()
         print("delete:\(index)")
-//        indexOf = indexArray.index(of: index)
-//        print("deleteOf\(indexOf)")
-        indexArray.remove(at: index)
-        dayArray.remove(at: index)
-        toDoArray.remove(at: index)
+        print (indexArray)
+        indexOf = indexArray.index(of: index)
+        print("deleteOf\(indexOf)")
+        indexArray.removeLast()
+        dayArray.remove(at: indexOf)
+        toDoArray.remove(at: indexOf)
         table.reloadData()
         print("delete\(indexArray,dayArray,toDoArray)")
 

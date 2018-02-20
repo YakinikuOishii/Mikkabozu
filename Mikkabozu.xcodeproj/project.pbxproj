@@ -10,13 +10,14 @@
 		5911A0D5202AB29500AEDC9D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5911A0D4202AB29500AEDC9D /* TableViewCell.swift */; };
 		5914ABCE20004CD800B5AF61 /* AddCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5914ABCD20004CD800B5AF61 /* AddCellViewController.swift */; };
 		59535DA01FF88D2800A4E9BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59535D9F1FF88D2800A4E9BF /* Main.storyboard */; };
-		597A88071FE66BDB00676056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597A88061FE66BDB00676056 /* AppDelegate.swift */; };
 		597A88091FE66BDB00676056 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597A88081FE66BDB00676056 /* ViewController.swift */; };
 		597A880E1FE66BDB00676056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 597A880D1FE66BDB00676056 /* Assets.xcassets */; };
 		597A88111FE66BDB00676056 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 597A880F1FE66BDB00676056 /* LaunchScreen.storyboard */; };
 		597A881C1FE66BDB00676056 /* MikkabozuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597A881B1FE66BDB00676056 /* MikkabozuTests.swift */; };
 		597A88271FE66BDB00676056 /* MikkabozuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597A88261FE66BDB00676056 /* MikkabozuUITests.swift */; };
 		598566921FE91107000F4869 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598566911FE91107000F4869 /* ToDoViewController.swift */; };
+		59CC99E3203C3C8A00551DCE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC99E2203C3C8A00551DCE /* UserNotifications.framework */; };
+		59CC99E5203C3E3B00551DCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CC99E4203C3E3B00551DCE /* AppDelegate.swift */; };
 		59D7A80F2004CD8A004E903C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D7A80E2004CD8A004E903C /* CalendarViewController.swift */; };
 		59E999C72008FD030065B72B /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E999C62008FD030065B72B /* CalendarCell.swift */; };
 		59E999C9200902F90065B72B /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E999C8200902F90065B72B /* DateManager.swift */; };
@@ -44,7 +45,6 @@
 		5914ABCD20004CD800B5AF61 /* AddCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCellViewController.swift; sourceTree = "<group>"; };
 		59535D9F1FF88D2800A4E9BF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		597A88031FE66BDB00676056 /* Mikkabozu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mikkabozu.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		597A88061FE66BDB00676056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		597A88081FE66BDB00676056 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		597A880D1FE66BDB00676056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		597A88101FE66BDB00676056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +56,8 @@
 		597A88261FE66BDB00676056 /* MikkabozuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MikkabozuUITests.swift; sourceTree = "<group>"; };
 		597A88281FE66BDB00676056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		598566911FE91107000F4869 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
+		59CC99E2203C3C8A00551DCE /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		59CC99E4203C3E3B00551DCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D7A80E2004CD8A004E903C /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		59E999C62008FD030065B72B /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		59E999C8200902F90065B72B /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59CC99E3203C3C8A00551DCE /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +96,7 @@
 				597A881A1FE66BDB00676056 /* MikkabozuTests */,
 				597A88251FE66BDB00676056 /* MikkabozuUITests */,
 				597A88041FE66BDB00676056 /* Products */,
+				59CC99E1203C3C8900551DCE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,7 +113,7 @@
 		597A88051FE66BDB00676056 /* Mikkabozu */ = {
 			isa = PBXGroup;
 			children = (
-				597A88061FE66BDB00676056 /* AppDelegate.swift */,
+				59CC99E4203C3E3B00551DCE /* AppDelegate.swift */,
 				59E999C8200902F90065B72B /* DateManager.swift */,
 				59E999C62008FD030065B72B /* CalendarCell.swift */,
 				59D7A80E2004CD8A004E903C /* CalendarViewController.swift */,
@@ -141,6 +145,14 @@
 				597A88281FE66BDB00676056 /* Info.plist */,
 			);
 			path = MikkabozuUITests;
+			sourceTree = "<group>";
+		};
+		59CC99E1203C3C8900551DCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59CC99E2203C3C8A00551DCE /* UserNotifications.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59CC99E5203C3E3B00551DCE /* AppDelegate.swift in Sources */,
 				59E999C9200902F90065B72B /* DateManager.swift in Sources */,
 				5911A0D5202AB29500AEDC9D /* TableViewCell.swift in Sources */,
 				59D7A80F2004CD8A004E903C /* CalendarViewController.swift in Sources */,
@@ -285,7 +298,6 @@
 				598566921FE91107000F4869 /* ToDoViewController.swift in Sources */,
 				597A88091FE66BDB00676056 /* ViewController.swift in Sources */,
 				5914ABCE20004CD800B5AF61 /* AddCellViewController.swift in Sources */,
-				597A88071FE66BDB00676056 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,10 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func applicationDidEnterBackground(_application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         print("アプリ閉じた時")
         let center = UNUserNotificationCenter.current()
-        center.delegate = self as! UNUserNotificationCenterDelegate
+        center.delegate = self as? UNUserNotificationCenterDelegate
         
         let content = UNMutableNotificationContent()
         content.title = "たいとる"

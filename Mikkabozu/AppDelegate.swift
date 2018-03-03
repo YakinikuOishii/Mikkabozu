@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    
     func applicationDidEnterBackground(_ application: UIApplication) {
         print("アプリ閉じた時")
         let center = UNUserNotificationCenter.current()
@@ -39,17 +38,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         content.body = "サンプルのbodyです"
         content.badge = 1
         content.sound = .default()
-        //        let component = DateComponents(calendar: Calendar.current, year: 2017, month: 3, day: 27, hour: 23, minute: 30)
-        // ここのタイミングを変えれば良い　指定した秒数後に通知
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        // let component = DateComponents(calendar: Calendar.current, year: 2017, month: 3, day: 27, hour: 23, minute: 30)
+        // 指定した秒数後に通知
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        // 毎日21時に通知が来る
+        let date = DateComponents(hour:21, minute:0)
+        let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
         let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)
-        
         
         center.add(request)
 //        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound], completionHandler: { result, error in })
-
     }
-    
 }
 
 

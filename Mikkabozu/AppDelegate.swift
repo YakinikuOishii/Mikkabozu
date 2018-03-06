@@ -34,14 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         center.delegate = self as? UNUserNotificationCenterDelegate
         
         let content = UNMutableNotificationContent()
-        content.title = "たいとる"
-        content.body = "サンプルのbodyです"
+        content.title = "タイトルだよ"
+        content.body = "通知だよ"
         content.badge = 1
         content.sound = .default()
         // let component = DateComponents(calendar: Calendar.current, year: 2017, month: 3, day: 27, hour: 23, minute: 30)
         // 指定した秒数後に通知
 //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        // 毎日21時に通知が来る
+//        // 毎日21時に通知が来る
         let date = DateComponents(hour:21, minute:0)
         let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
         let request = UNNotificationRequest(identifier: "Identifier", content: content, trigger: trigger)

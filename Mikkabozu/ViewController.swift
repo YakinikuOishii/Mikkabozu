@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     
     var indexArray:[Int] = []
     var toDoArray:[String] = []
-    var dayArray:[String] = []
+    var dayArray:[Int] = []
     
     var indexOf: Int!
     var index: Int!
@@ -38,20 +38,20 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        self.navigationItem.titleView = UIImageView(image:UIImage(named: ))
         table.dataSource = self
         table.delegate = self
         
         if saveIndex.object(forKey: "index") != nil {
             indexArray = saveIndex.object(forKey: "index") as! [Int]
             toDoArray = saveToDo.object(forKey: "todo") as! [String]
-            dayArray = saveDay.object(forKey: "day") as! [String]
+            dayArray = saveDay.object(forKey: "day") as! [Int]
         }else{
             print("viewdidユーザーデフォルツは空です")
         }
         
         
-        print("viewdid\(indexArray, toDoArray, dayArray)")
+//        print("viewdid\(indexArray, toDoArray, dayArray)")
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -85,7 +85,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         
         let dayLabel = cell?.viewWithTag(2) as! UILabel
         if indexOf != nil {
-            dayLabel.text = dayArray[indexOf]
+            dayLabel.text = String(dayArray[indexOf])
         }else{
             print("indexOfは空です")
         }

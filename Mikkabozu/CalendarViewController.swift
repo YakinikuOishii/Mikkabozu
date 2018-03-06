@@ -121,6 +121,8 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate ,UIColl
     let dateInt: Int! = nil
     
     var date:Int!
+    
+    let color = UIColor(red:  0.835, green: 0.215, blue: 0.521, alpha: 1.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -232,11 +234,16 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         print("dateは")
         print(date)
         
-        if cell.tag == date {
-            cell.backgroundColor = UIColor.green
-        }else{
-            
+        if date == nil {
+            cell.backgroundColor = UIColor.white
+        }else {
+            if cell.tag == date {
+                cell.backgroundColor = color
+            }else{
+                cell.backgroundColor = UIColor.white
+            }
         }
+        
         
         return cell
     }

@@ -20,11 +20,11 @@ class AddCellViewController: UIViewController ,UIPickerViewDelegate, UIPickerVie
     var arrayCount: Int!
     
     var pickerView: UIPickerView! = UIPickerView()
-    let day = ["1日","2日","3日","4日","5日","6日","7日"]
+    let day = [7,14,30,90,180]
     
     var indexArray:[Int] = []
     var toDoArray:[String] = []
-    var dayArray:[String] = []
+    var dayArray:[Int] = []
     
     var saveToDo = UserDefaults.standard
     var saveIndex = UserDefaults.standard
@@ -40,7 +40,7 @@ class AddCellViewController: UIViewController ,UIPickerViewDelegate, UIPickerVie
         
         if saveToDo.object(forKey: "todo") != nil {
             toDoArray = saveToDo.object(forKey: "todo") as! [String]
-            dayArray = saveDay.object(forKey: "day") as! [String]
+            dayArray = saveDay.object(forKey: "day") as! [Int]
         }else{
             print("ユーザーデフォルツは空です")
         }
@@ -67,11 +67,11 @@ class AddCellViewController: UIViewController ,UIPickerViewDelegate, UIPickerVie
         return day.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return day[row]
+        return String(day[row])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.dayTextField.text = day[row]
+        self.dayTextField.text = String(day[row])
     }
     
     
@@ -86,7 +86,9 @@ class AddCellViewController: UIViewController ,UIPickerViewDelegate, UIPickerVie
     
     @IBAction func setDone() {
         
-        dayArray.append(dayTextField.text!)
+        print (dayTextField.text)
+        let text = dayTextField.text
+        dayArray.append(Int(text!)!)
         toDoArray.append(toDotext.text)
         
         saveDay.set(dayArray, forKey: "day")
@@ -113,4 +115,6 @@ class AddCellViewController: UIViewController ,UIPickerViewDelegate, UIPickerVie
      */
     
 }
+
+
 

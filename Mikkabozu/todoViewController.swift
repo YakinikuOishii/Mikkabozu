@@ -19,11 +19,11 @@ class ToDoViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDa
     var indexOf: Int!
     
     var pickerView: UIPickerView! = UIPickerView()
-    let day = ["1日","2日","3日","4日","5日","6日","7日"]
+    let day = [7,14,30,90,180]
     
     var indexArray:[Int] = []
     var toDoArray:[String] = []
-    var dayArray:[String] = []
+    var dayArray:[Int] = []
     
     var saveToDo = UserDefaults.standard
     var saveIndex = UserDefaults.standard
@@ -39,7 +39,7 @@ class ToDoViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDa
         
         if saveToDo.object(forKey: "todo") != nil {
             toDoArray = saveToDo.object(forKey: "todo") as! [String]
-            dayArray = saveDay.object(forKey: "day") as! [String]
+            dayArray = saveDay.object(forKey: "day") as! [Int]
         }else{
             print("ユーザーデフォルツは空です")
         }
@@ -66,11 +66,11 @@ class ToDoViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDa
         return day.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return day[row]
+        return String(day[row])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.dayTextField.text = day[row]
+        self.dayTextField.text = String(day[row])
     }
     
     
@@ -89,7 +89,7 @@ class ToDoViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDa
         dayArray.remove(at: indexOf)
         
         indexArray.append(index)
-        dayArray.append(dayTextField.text!)
+        dayArray.append(Int(dayTextField.text!)!)
         toDoArray.append(toDotext.text)
         
         saveDay.set(dayArray, forKey: "day")

@@ -158,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khy-fg-kxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1217" y="208"/>
+            <point key="canvasLocation" x="3876" y="176"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="6ax-3f-FZc">
@@ -293,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="efk-pn-GUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2042" y="209"/>
+            <point key="canvasLocation" x="1217" y="210"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -96,22 +96,23 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     //セルをタップした時のメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell!
-        let todayIs = cell!.getToday(format:"yyyyMMdd")
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell!
+//        let todayIs = cell!.getToday(format:"yyyyMMdd")
+//
+//        print(todayIs)
+//        print("tap:\(indexPath.row)")
         
-        print(todayIs)
-        print("tap:\(indexPath.row)")
-        
-        performSegue(withIdentifier: "toCalendar", sender: todayIs)
+        performSegue(withIdentifier: "toCalendar", sender: Any.self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toCalendar" {
-            let nextVC = segue.destination as! CalendarViewController
-            nextVC.dateText = sender as! String
-            nextVC.date = Int(nextVC.dateText)
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toCalendar" {
+//            let nextVC = segue.destination as! CalendarViewController
+//            nextVC.dateText = sender as! String
+//            nextVC.date = Int(nextVC.dateText)
+//        }
+//    }
+    
     
     //        indexOf = indexArray.index(of: indexPath.row)
     //        saveIndexOf.set(indexOf, forKey: "indexof")

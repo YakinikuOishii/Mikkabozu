@@ -11,9 +11,11 @@ import UIKit
 class TableViewCell: UITableViewCell {
     @IBOutlet var button: UIButton!
     
+    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBAction func done() {
-        var date = Date()
-        print("今日は\(date)")
+        appDelegate.getDay = getToday()
+        print("ボタン押されたよ")
     }
     
     // 今日の日付をString型で取得

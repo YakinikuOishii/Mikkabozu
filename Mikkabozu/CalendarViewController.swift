@@ -123,11 +123,20 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate ,UIColl
     var date:Int!
     
     let color = UIColor(red:  0.835, green: 0.215, blue: 0.521, alpha: 1.0)
-
+    
+    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        dateText = appDelegate.getDay
+        if dateText != nil {
+            date = Int(dateText)!
+        }
+        
         
 //        let dateFormater = DateFormatter()
 //        dateFormater.locale = Locale(identifier: "ja_JP")
@@ -228,11 +237,11 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         }
         // セルに年と月のタグをつける
         cell.tag = Int(dateManager.monthTag(row:indexPath.row,startDate:startDate))!
-        print(cell.tag)
-        print("dateTextは")
-        print(dateText)
-        print("dateは")
-        print(date)
+//        print(cell.tag)
+//        print("dateTextは")
+//        print(dateText)
+//        print("dateは")
+//        print(date)
         
         if date == nil {
             cell.backgroundColor = UIColor.white

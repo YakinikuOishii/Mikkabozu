@@ -10,11 +10,13 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     @IBOutlet var button: UIButton!
+    var saveGetDay = UserDefaults.standard
     
     var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBAction func done() {
-        appDelegate.getDay = getToday()
+        appDelegate.getDay.append(getToday())
+        saveGetDay.set(appDelegate.getDay, forKey: "getDay")
         print("ボタン押されたよ")
     }
     

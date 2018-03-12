@@ -104,6 +104,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate ,UIColl
     
     @ IBOutlet var collectionView: UICollectionView!
     
+    
     // インスタンス化する！
     let dateManager = DateManager()
     var startDate = Date()
@@ -113,18 +114,20 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate ,UIColl
     
     var weekLabel: UILabel!
     
-    var dateText: String!
+    var dateText: [String] = []
     
     var numOfDays: Int! = 7
     let cellMargin: CGFloat! = 2.0 // セルの余白 セルアイテムとは別
     
     let dateInt: Int! = nil
     
-    var date:Int!
+    var date:[Int] = []
     
-    let color = UIColor(red:  0.835, green: 0.215, blue: 0.521, alpha: 1.0)
+    let color = UIColor(red:  0.835, green: 0.215, blue: 0.521, alpha: 0.5)
     
-    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    var saveGetDay = UserDefaults.standard
     
     
     override func viewDidLoad() {
@@ -132,9 +135,11 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        dateText = appDelegate.getDay
+        dateText = saveGetDay.object(forKey: "getDay") as! [String]
         if dateText != nil {
-            date = Int(dateText)!
+            for i in dateText {
+                date.append(Int(i)!)
+            }
         }
         
         
@@ -245,11 +250,13 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         
         if date == nil {
             cell.backgroundColor = UIColor.white
-        }else {
-            if cell.tag == date {
-                cell.backgroundColor = color
-            }else{
-                cell.backgroundColor = UIColor.white
+        }else{
+            for i in date {
+                if cell.tag == i{
+                    cell.backgroundColor = color
+                }else{
+                    cell.backgroundColor = UIColor.white
+                }
             }
         }
         

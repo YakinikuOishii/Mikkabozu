@@ -13,11 +13,17 @@ class TableViewCell: UITableViewCell {
     var saveGetDay = UserDefaults.standard
     
     var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+//    // getdayArrayにまだ今日の日付がなかったら、ボタン有効（1日1回しか押せない) どこに書けば良い？
+//    if appDelegate.getDay.index(of: getToday()) != nil{
+//    button.isEnabled = true
+//    }else{
+//    button.isEnabled = false
+//    }
     @IBAction func done() {
-        appDelegate.getDay.append(getToday())
-        saveGetDay.set(appDelegate.getDay, forKey: "getDay")
         print("ボタン押されたよ")
+        appDelegate.getDayArray.append(getToday())
+        saveGetDay.set(appDelegate.getDayArray, forKey: "getDay")
+        
     }
     
     // 今日の日付をString型で取得

@@ -135,11 +135,16 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        
         dateText = saveGetDay.object(forKey: "getDay") as! [String]
         if dateText != nil {
             for i in dateText {
                 date.append(Int(i)!)
+                print("dateの中身は")
+                print(date)
             }
+        }else{
+            
         }
         
         

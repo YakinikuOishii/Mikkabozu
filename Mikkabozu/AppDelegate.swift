@@ -13,7 +13,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 //    var saveGetDay = UserDefaults.standard
-    var getDay: [String] = []
+    var getDayArray: [String] = []
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // アプリ起動時に呼ばれる

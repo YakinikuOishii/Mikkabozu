@@ -76,14 +76,15 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell!
         print("\(indexPath.row)番のセルを取得")
-        // getdayArrayにまだ今日の日付がなかったら、ボタン有効（1日1回しか押せないように)にする
-        if appDelegate.getDayArray.index(of: (cell?.getToday())!) != nil{
-            print("ボタン有効")
-//            cell?.button.isEnabled = true
-        }else{
-            print("無効")
-            cell?.button.isEnabled = false
-        }
+//        print(appDelegate.getDayArray.index(of: (cell?.getToday())!)!)
+//        // getdayArrayにまだ今日の日付がなかったら、ボタン有効にする
+//        if appDelegate.getDayArray.index(of: (cell?.getToday())!) != nil{
+//            print("ボタン有効")
+////            cell?.button.isEnabled = true
+//        }else{
+//            print("無効") // getDayArrayに追加しないようにする
+////            cell?.button.isEnabled = false
+//        }
         
         indexOf = indexArray.index(of: indexPath.row)
         let toDoLabel = cell?.viewWithTag(1) as! UILabel
@@ -106,28 +107,9 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     
     //セルをタップした時のメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell!
-//        let todayIs = cell!.getToday(format:"yyyyMMdd")
-//
-//        print(todayIs)
-//        print("tap:\(indexPath.row)")
-        
+        print("セルがタップされたよ")
         performSegue(withIdentifier: "toCalendar", sender: Any.self)
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toCalendar" {
-//            let nextVC = segue.destination as! CalendarViewController
-//            nextVC.dateText = sender as! String
-//            nextVC.date = Int(nextVC.dateText)
-//        }
-//    }
-    
-    
-    //        indexOf = indexArray.index(of: indexPath.row)
-    //        saveIndexOf.set(indexOf, forKey: "indexof")
-    //        saveIndex.set(indexPath.row, forKey: "indexpath")
     
     
     // Cellのスワイプメソッドを実装

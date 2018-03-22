@@ -91,6 +91,20 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             dayLabel.text = "3"
             if appDelegate.getDayArray.count >= 3 {
                 dayLabel.text = "7"
+                if appDelegate.getDayArray.count >= 7 {
+                    dayLabel.text = "14"
+                    if appDelegate.getDayArray.count >= 14 {
+                        dayLabel.text = "30"
+                        if appDelegate.getDayArray.count >= 30 {
+                            dayLabel.text = "90"
+                            if appDelegate.getDayArray.count >= 90 {
+                                dayLabel.text = "180"
+                            }
+                        }
+                    }
+                }
+//                if dayArray[indexPath.row] >= 7 {
+//                }
             }
 //            dayLabel.text = String(dayArray[indexOf])
         }else{

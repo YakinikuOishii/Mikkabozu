@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
     
     var indexArray:[Int] = []
     var toDoArray:[String] = []
-    var dayArray:[Int] = []
+    var expectedDaysArray:[Int] = []
     
     var indexOf: Int!
     var index: Int!
@@ -47,7 +47,7 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         if saveIndex.object(forKey: "index") != nil {
             indexArray = saveIndex.object(forKey: "index") as! [Int]
             toDoArray = saveToDo.object(forKey: "todo") as! [String]
-            dayArray = saveDay.object(forKey: "day") as! [Int]
+            expectedDaysArray = saveDay.object(forKey: "day") as! [Int]
         }else{
             print("viewdidユーザーデフォルツは空です")
         }
@@ -150,13 +150,13 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
         indexOf = indexArray.index(of: index)
         print("deleteOf\(indexOf)")
         indexArray.removeLast()
-        dayArray.remove(at: indexOf)
+        expectedDaysArray.remove(at: indexOf)
         toDoArray.remove(at: indexOf)
         table.reloadData()
-        print("delete\(indexArray,dayArray,toDoArray)")
+        print("delete\(indexArray,expectedDaysArray,toDoArray)")
 
         saveIndex.set(indexArray, forKey: "index")
-        saveDay.set(dayArray, forKey: "day")
+        saveDay.set(expectedDaysArray, forKey: "day")
         saveToDo.set(toDoArray, forKey: "todo")
     }
 //

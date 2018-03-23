@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddCellViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDataSource{
+class AddCellViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate{
     
     @IBOutlet var dayTextField: UITextField! = UITextField()
     @IBOutlet var toDotext: UITextView! = UITextView()
@@ -32,6 +32,7 @@ class AddCellViewController: UIViewController ,UIPickerViewDelegate, UIPickerVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dayTextField.delegate = self
         
         arrayCount = saveIndex.object(forKey: "count") as! Int!
         indexArray = saveIndex.object(forKey: "index") as! [Int]
@@ -72,6 +73,11 @@ class AddCellViewController: UIViewController ,UIPickerViewDelegate, UIPickerVie
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.dayTextField.text = String(day[row])
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dayTextField.resignFirstResponder()
+        return true
     }
     
     

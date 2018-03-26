@@ -91,22 +91,19 @@ class ViewController: UIViewController, UITableViewDataSource,UITableViewDelegat
             dayLabel.text = "3"
             if appDelegate.getDayArray.count >= 3 {
                 dayLabel.text = "7"
-                if appDelegate.getDayArray.count >= 7 {
+                if appDelegate.getDayArray.count >= 7 && expectedDaysArray[indexOf] >= 7{
                     dayLabel.text = "14"
-                    if appDelegate.getDayArray.count >= 14 {
+                    if appDelegate.getDayArray.count >= 14 && expectedDaysArray[indexOf] >= 14{
                         dayLabel.text = "30"
-                        if appDelegate.getDayArray.count >= 30 {
+                        if appDelegate.getDayArray.count >= 30 && expectedDaysArray[indexOf] >= 30{
                             dayLabel.text = "90"
-                            if appDelegate.getDayArray.count >= 90 {
+                            if appDelegate.getDayArray.count >= 90 && expectedDaysArray[indexOf] >= 90{
                                 dayLabel.text = "180"
                             }
                         }
                     }
                 }
-//                if dayArray[indexPath.row] >= 7 {
-//                }
             }
-//            dayLabel.text = String(dayArray[indexOf])
         }else{
             print("indexOfは空です")
         }

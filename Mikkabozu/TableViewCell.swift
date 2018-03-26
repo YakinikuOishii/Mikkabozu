@@ -19,6 +19,7 @@ class TableViewCell: UITableViewCell {
         
         if appDelegate.getDayArray.index(of: getToday()) == nil{
             print("有効")
+            appDelegate.getDayArray = saveGetDay.object(forKey: "getDay") as! [String]
             appDelegate.getDayArray.append(getToday())
             saveGetDay.set(appDelegate.getDayArray, forKey: "getDay")
         }else{

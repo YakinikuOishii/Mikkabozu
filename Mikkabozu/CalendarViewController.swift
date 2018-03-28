@@ -121,27 +121,26 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate ,UIColl
     
     let dateInt: Int! = nil
     
-    var date:[Int] = []
+    var dateArray:[Int] = []
     
     let color = UIColor(red:  0.835, green: 0.215, blue: 0.521, alpha: 0.5)
     
 //    var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var saveGetDay = UserDefaults.standard
-    
+    var tagArray:[Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        
         dateText = saveGetDay.object(forKey: "getDay") as! [String]
-        if dateText != nil {
+        if dateText.count != 0 {
             for i in dateText {
-                date.append(Int(i)!)
+                dateArray.append(Int(i)!)
                 print("dateの中身は")
-                print(date)
+                print(dateArray)
             }
         }else{
             
@@ -247,17 +246,15 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate ,UIColl
         }
         // セルに年と月のタグをつける
         cell.tag = Int(dateManager.monthTag(row:indexPath.row,startDate:startDate))!
-//        print(cell.tag)
-//        print("dateTextは")
-//        print(dateText)
-//        print("dateは")
-//        print(date)
+//        tagArray.append(cell.tag)
+        print(cell.tag)
         
-        if date == nil {
+        if dateArray.count == 0 {
             cell.backgroundColor = UIColor.white
         }else{
-            for i in date {
+            for i in dateArray {
                 if cell.tag == i{
+                    print("cell.tagは\(i)")
                     cell.backgroundColor = color
                 }else{
                     cell.backgroundColor = UIColor.white

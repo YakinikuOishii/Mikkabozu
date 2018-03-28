@@ -75,6 +75,7 @@ class AddCellViewController: UIViewController ,UIPickerViewDelegate, UIPickerVie
         self.dayTextField.text = String(day[row])
     }
     
+    // キーボードを閉じるようにする
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         dayTextField.resignFirstResponder()
         return true
